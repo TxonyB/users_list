@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+
+
 const App = (props: any) => {
 	const [users, setUsers] = useState([
 		{ id: 1, name: "Minora" },
@@ -18,6 +20,8 @@ const App = (props: any) => {
 			<div className="card">
         {loading ? <h2>Carregando...</h2> : null}
 				<ul>
+
+
 					{users.map((user) => (
 						<li key={user.id}>{user.name}</li>
 					))}
