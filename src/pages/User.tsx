@@ -8,7 +8,7 @@ import Avatar from '@mui/material/Avatar';
 import ListSubheader from '@mui/material/ListSubheader';
 import { CircularProgress } from "@mui/material";
 import { Container } from "@mui/system";
-
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -18,6 +18,8 @@ export const User = () => {
 		{ id: 2, name: "" },
 	]);
   const [loading, setLoading] = useState(true);
+
+	let navigate = useNavigate();
 
 	useEffect(() => {
 		fetch("https://jsonplaceholder.typicode.com/users/")
@@ -46,6 +48,9 @@ export const User = () => {
 					{users.map((user) => (
 						<ListItem
             disablePadding
+						onClick={() => {
+							navigate("/tasks/user/" + user.id);
+						}}
           >
             <ListItemButton>
               <ListItemAvatar>
