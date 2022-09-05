@@ -9,10 +9,11 @@ import ListSubheader from '@mui/material/ListSubheader';
 import { CircularProgress } from "@mui/material";
 import { Container } from "@mui/system";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import IconButton from '@mui/material/IconButton';
+import CommentIcon from '@mui/icons-material/Comment';
 
-
-
-export const User = () => {
+const Home = () => {
 	const [users, setUsers] = useState([
 		{ id: 1, name: "" },
 		{ id: 2, name: "" },
@@ -47,11 +48,18 @@ export const User = () => {
 					>
 					{users.map((user) => (
 						<ListItem
+            key={user.id}
+            secondaryAction={
+							<Link to={`/posts/${user.id}`} key={user.id}>
+              <IconButton edge="end" aria-label="comments">
+                <CommentIcon />
+              </IconButton>
+							</Link>
+            }
             disablePadding
-						onClick={() => {
-							navigate("/tasks/user/" + user.id);
-						}}
           >
+					
+						
             <ListItemButton>
               <ListItemAvatar>
                 <Avatar
@@ -59,7 +67,9 @@ export const User = () => {
                   src={`/static/images/avatar/${+ 1}.jpg`}
                 />
               </ListItemAvatar>
+							<Link to={`/task/${user.id}`}>
               <ListItemText  primary={user.name} />
+							</Link>
             </ListItemButton>
           </ListItem>	
 						))}
@@ -72,3 +82,4 @@ export const User = () => {
 };
 
 
+export default Home;

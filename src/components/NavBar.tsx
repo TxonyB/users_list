@@ -125,7 +125,7 @@ const ResponsiveAppBar = () => {
                 {pages[0]}
               </Button>
             </Link>
-            <Link to="/user/task/">
+            <Link to="/task">
               <Button
                 key={pages[1]}
                 onClick={handleCloseNavMenu}
