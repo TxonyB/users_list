@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { Container } from '@mui/system';
+import Comments from './Comments';
 
 export default function AlignItemsList() {
   let params = useParams();
@@ -45,7 +46,7 @@ export default function AlignItemsList() {
               >
                 {post.body}
               </Typography>
-              
+              <Comments post={post.id} />
             </React.Fragment>
           }
         />
