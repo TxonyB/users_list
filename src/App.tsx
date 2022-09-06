@@ -6,6 +6,8 @@ import Posts from "./pages/Posts";
 import Home from "./pages/Home";
 import { BrowserRouter } from "react-router-dom";
 import { Alert } from "@mui/material";
+import Login from "./pages/Login";
+import SignIn from "./pages/SignIn";
 
 const App = (props: any) => {
 	return (
@@ -15,6 +17,8 @@ const App = (props: any) => {
 					<Route path="/" element={<Home />} />
 					<Route path="/task/:userId" element={<Tasks />} />
 					<Route path="/posts/:userId" element={<Posts/>}/>
+					<Route path="/login" element={<Login/>}/>
+					<Route path="/signin" element={<SignIn/>}/>
 					<Route path="*" element={
             <Alert variant="filled" severity="warning">
               Error 404

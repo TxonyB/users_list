@@ -12,10 +12,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const pages = ['Usuários', 'Tarefas', 'Posts'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Login', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -60,6 +60,7 @@ const ResponsiveAppBar = () => {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+         
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -88,11 +89,11 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              
+                <MenuItem key={pages[0]} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{pages[0]}</Typography>
                 </MenuItem>
-              ))}
+              
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -116,31 +117,22 @@ const ResponsiveAppBar = () => {
           </Typography>
          
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Link to="/">
+            <Link to="/login">
               <Button
-                key={pages[0]}
+                key={settings[0]}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {pages[0]}
+                {settings[0]}
               </Button>
             </Link>
-            <Link to="/task">
+            <Link to="/signin">
               <Button
-                key={pages[1]}
+                key={settings[1]}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {pages[1]}
-              </Button>
-            </Link>
-            <Link to="/user/post">
-              <Button
-                key={pages[2]}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {pages[2]}
+                {settings[1]}
               </Button>
             </Link>
           </Box>
